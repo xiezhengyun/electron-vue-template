@@ -75,7 +75,7 @@ const buffer = readFileSync(path);
    2. 在checkUpdate.ts 和 electron-builder 的publish 里 填写服务器地址
    3. 每次发布后，把 1 里的文件放入服务器，应用启动检测到新版本，就可以弹窗提示下载更新
    4. 点击确认，下载更新安装新版本 
-   5. https://gt.rubikstack.com/xiezhengyun/electron-pack-server 这个是本地服务例子，拉项目后，安装依赖，运行命令：node index
+   5. https://github.com/xiezhengyun/electron-vue-template/electron-pacs-serve 这个是本地服务例子，拉项目后，安装依赖，运行命令：node index
 
 - env.dev, env.prod, env.prod 文件，区分环境，文件里有各个环节不同变量。比如：APP_UPDATE_URL 包更新地址
   文件里设置的变量，会被设置到 process.env 上面。 例：process.env.APP_UPDATE_URL
