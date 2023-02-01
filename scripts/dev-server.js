@@ -1,4 +1,3 @@
-process.env.NODE_ENV = 'development';
 
 const Vite = require('vite');
 const ChildProcess = require('child_process');
@@ -8,6 +7,9 @@ const Chokidar = require('chokidar');
 const Electron = require('electron');
 const compileTs = require('./private/tsc');
 const FileSystem = require('fs');
+const { getEnvironmentVariables } = require('./base')
+
+getEnvironmentVariables()
 
 let viteServer = null;
 let electronProcess = null;

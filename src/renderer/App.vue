@@ -24,7 +24,15 @@ window.ipcRenderer.on('change-win2', (event, value) => {
 window.ipcRenderer.on('ask', (event, value) => {
   console.log('ask', value)
   // event.sender.send('change-win2-back', 'xcxcc')
+});
+
+['second-instance', 'handleArgv', 'handleUrl-urlStr', 'updateDownloading'].forEach(item => {
+  window.ipcRenderer.on(item, (event, value) => {
+    console.log(item, value)
+  })
 })
+
+
 </script>
 
 <template>

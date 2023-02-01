@@ -1,31 +1,39 @@
 {
-  "name": "electron-vue-template",
-  "version": "0.1.0",
+  "name": "pacsclient",
+  "version": "1.0.0",
   "description": "A minimal Electron + Vue application",
   "main": "build/main/main.js",
   "scripts": {
-    "dev": "node scripts/dev-server.js",
+    "dev": "cross-env NODE_ENV=dev node scripts/dev-server.js",
+    "dev:test": "cross-env NODE_ENV=test node scripts/dev-server.js",
+    "dev:prod": "cross-env NODE_ENV=prod node scripts/dev-server.js",
     "build": "node scripts/build.js && electron-builder",
     "build:win": "node scripts/build.js && electron-builder --win",
     "build:mac": "node scripts/build.js && electron-builder --mac",
-    "build:linux": "node scripts/build.js && electron-builder --linux"
+    "build:linux": " node scripts/build.js && electron-builder --linux",
+    "build:prod": "cross-env NODE_ENV=prod node scripts/build.js && electron-builder --win",
+    "build:test": "cross-env NODE_ENV=test node scripts/build.js && electron-builder --win"
   },
-  "repository": "https://github.com/deluze/electron-vue-template",
+  "repository": "https://gt.rubikstack.com/xiezhengyun/electron-vue-template",
   "author": {
-    "name": "Deluze",
-    "url": "https://github.com/Deluze"
+    "name": "xiezy",
+    "url": "https://gt.rubikstack.com/xiezhengyun"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/cli": "^5.0.8",
     "chalk": "^4.1.2",
     "chokidar": "^3.5.3",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
     "electron": "^22.0.2",
     "electron-builder": "^23.6.0",
     "typescript": "^4.8.4",
     "vite": "^4.0.4"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
+    "electron-updater": "^5.3.0",
     "http": "^0.0.1-security",
     "vue": "^3.2.40"
   }

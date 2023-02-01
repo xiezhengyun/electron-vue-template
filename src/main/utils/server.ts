@@ -1,10 +1,17 @@
 import http from 'http'
+import { showActive } from '../main'
+
+let server: any = null
 
 export const createServe = mainWindow => {
+  if (server) {
+    server.close()
+    server = null
+  }
   const hostname = 'localhost'
   const port = 7898
 
-  const server = http.createServer()
+  server = http.createServer()
 
   //  处理请求
   server.on('request', function (request, response) {
@@ -12,10 +19,12 @@ export const createServe = mainWindow => {
       switch (request.url) {
         case '/ask':
           mainWindow.webContents.send('ask', 'ask-value')
+          response.setHeader('Content-Type', 'text/html; charset=utf-8')
           response.end('success')
           break
         case '/show':
-          mainWindow.showInactive()
+          showActive()
+          response.setHeader('Content-Type', 'text/html; charset=utf-8')
           response.end('success')
           break
         case '/':
@@ -28,9 +37,9 @@ export const createServe = mainWindow => {
           break
       }
     } catch (error) {
-      console.log(error)
       response.statusCode = 500
-      response.end('服务器错误')
+      response.setHeader('Content-Type', 'text/html; charset=utf-8')
+      response.end('serveError')
     }
   })
 
